@@ -1,4 +1,4 @@
-from threading import Thread
+from threading import Thread, get_ident
 
 class Sample_Thread:
 
@@ -21,4 +21,4 @@ class Sample_Thread:
         self.print_thread_info("end")
 
     def print_thread_info(self, msg: str):
-        pass
+        print("[thread id: {}] {}".format(get_ident(), msg))
