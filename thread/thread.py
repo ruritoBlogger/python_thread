@@ -1,4 +1,4 @@
-from threading import Thread, get_ident
+from threading import Thread, get_ident, active_count
 
 class Sample_Thread:
 
@@ -26,6 +26,7 @@ class Sample_Thread:
 class Sample_Threads:
 
     def __init__(self):
+        self.print_thread_num()
         self._thread_one = None
         self._thread_two = None
         self._flag = True
@@ -36,11 +37,13 @@ class Sample_Threads:
         self._thread_two = Thread(target=self.heavy_task)
         self._thread_one.start()
         self._thread_two.start()
+        self.print_thread_num()
 
     def stop(self):
         self._flag = False
         self._thread_one.join()
         self._thread_two.join()
+        self.print_thread_num()
 
     def heavy_task(self):
         self.print_thread_info("start")
@@ -56,3 +59,6 @@ class Sample_Threads:
 
     def print_thread_info(self, msg: str):
         print("[thread id: {}] {}".format(get_ident(), msg))
+
+    def print_thread_num(self):
+        print("thread num is {}".format(active_count()))
