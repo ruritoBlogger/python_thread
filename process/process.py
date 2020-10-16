@@ -1,4 +1,3 @@
-from threading import Thread, get_ident, active_count
 from multiprocessing import Process
 
 class Sample_Process:

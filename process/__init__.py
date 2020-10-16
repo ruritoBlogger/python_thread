@@ -8,6 +8,8 @@ def run_one_process():
 
 if __name__ == "__main__":
     from process import *
+    from process_wrapper import *
     run_one_process()
 else:
     from .process import *
+    from .process_wrapper import *
