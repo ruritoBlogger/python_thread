@@ -3,14 +3,13 @@ from threading import Thread, get_ident
 
 class Process_Wrapper:
 
-    def __init__(self):
+    def __init__(self, instance):
         self.process = None
-        self.threads = None
+        self.threads = instance
         self.pub_pipe = None
         self.sub_pipe = None
 
     def start(self):
-        self.threads = Wrapped_Thread()
         self.pub_pipe, self.sub_pipe = Pipe()
         self.process = Process(target=self.threads.run, args=(self.sub_pipe, ))
         self.process.start()

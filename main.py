@@ -1,7 +1,8 @@
 from process import *
 import time
 
-process = Process_Wrapper()
+threads = Wrapped_Thread()
+process = Process_Wrapper(threads)
 process.start()
 time.sleep(5)
 process.stop()
