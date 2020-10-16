@@ -1,5 +1,4 @@
 from threading import Thread
-import time
 
 class Sample_Thread:
 
